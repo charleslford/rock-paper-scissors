@@ -4,7 +4,10 @@ const getUserChoice = userInput => {
  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
    return userInput;
  } else {
-   console.log('Error! Enter; rock, paper or scissors.');
+   console.log('You entered, not a rock, paper, or scissors... so we picked for you');
+   forcedChoice = getComputerChoice()
+   console.log(`you get: ${forcedChoice}`)
+   return forcedChoice
  }
 }
 const getComputerChoice = () => {
