@@ -29,9 +29,9 @@ const determineWinner = (userChoice, computerChoice) => {
     'paper': 'rock'
   }
 
-  if (choiceRules(userChoice) === computerChoice) {
+  if (choiceRules[userChoice] === computerChoice) {
       console.log('Robot wins GG NUB');
-    } else if (choiceRules(computerChoice) === userChoice) {
+    } else if (choiceRules[computerChoice] === userChoice) {
       console.log('You win! GG, NO RE');
     } else {
       console.log('A tie, IE a european victory');
@@ -39,7 +39,7 @@ const determineWinner = (userChoice, computerChoice) => {
 
   };
 const playGame = () => {
-  const userChoice = getUserChoice('rock');
+  const userChoice = getUserChoice(choice);
   const computerChoice = getComputerChoice();
   console.log('You throw: ' + userChoice);
   console.log('Computer throws: ' + computerChoice);
