@@ -23,33 +23,20 @@ const getComputerChoice = () => {
 };
 
 const determineWinner = (userChoice, computerChoice) => {
-  if (userChoice === computerChoice) {
-    return 'The game is a tie!';
-  } 
-  if (userChoice === 'rock') {
-    if (computerChoice === 'paper') {
-      return 'Computer wins, loser!';
-    } else {
-      return 'Congraturation!'
-    }
+  choiceRules = {
+    'rock': 'scissors',
+    'scissors': 'paper',
+    'paper': 'rock'
   }
-  if (userChoice === 'paper') {
-    if (computerChoice === 'scissors') {
-      return 'Computer wins!'
+
+  if (choiceRules(userChoice) === computerChoice) {
+      console.log('Robot wins GG NUB');
+    } else if (choiceRules(computerChoice) === userChoice) {
+      console.log('You win! GG, NO RE');
     } else {
-      return 'Hooray you win!';
+      console.log('A tie, IE a european victory');
     }
-  }
-  if (userChoice === 'scissors') {
-    if (computerChoice === 'rock') {
-      return 'Too soon junior...You lose';
-    } else {
-      return 'You win!'
-    }
-    }
-  if (userChoice === 'bomb') {
-    return 'Congrtulations!....cheater'
-  }
+
   };
 const playGame = () => {
   const userChoice = getUserChoice('rock');
