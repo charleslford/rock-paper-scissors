@@ -4,7 +4,10 @@ const getUserChoice = userInput => {
  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
    return userInput;
  } else {
-   console.log('Error! Enter; rock, paper or scissors.');
+   console.log('You entered, not a rock, paper, or scissors... so we picked for you');
+   forcedChoice = getComputerChoice()
+   console.log(`you get: ${forcedChoice}`)
+   return forcedChoice
  }
 }
 const getComputerChoice = () => {
@@ -20,36 +23,23 @@ const getComputerChoice = () => {
 };
 
 const determineWinner = (userChoice, computerChoice) => {
-  if (userChoice === computerChoice) {
-    return 'The game is a tie!';
-  } 
-  if (userChoice === 'rock') {
-    if (computerChoice === 'paper') {
-      return 'Computer wins, loser!';
-    } else {
-      return 'Congraturation!'
-    }
+  choiceRules = {
+    'rock': 'scissors',
+    'scissors': 'paper',
+    'paper': 'rock'
   }
-  if (userChoice === 'paper') {
-    if (computerChoice === 'scissors') {
-      return 'Computer wins!'
+
+  if (choiceRules[userChoice] === computerChoice) {
+      console.log('Robot wins GG NUB');
+    } else if (choiceRules[computerChoice] === userChoice) {
+      console.log('You win! GG, NO RE');
     } else {
-      return 'Hooray you win!';
+      console.log('A tie, IE a european victory');
     }
-  }
-  if (userChoice === 'scissors') {
-    if (computerChoice === 'rock') {
-      return 'Too soon junior...You lose';
-    } else {
-      return 'You win!'
-    }
-    }
-  if (userChoice === 'bomb') {
-    return 'Congrtulations!....cheater'
-  }
+
   };
 const playGame = () => {
-  const userChoice = getUserChoice('rock');
+  const userChoice = getUserChoice(choice);
   const computerChoice = getComputerChoice();
   console.log('You throw: ' + userChoice);
   console.log('Computer throws: ' + computerChoice);
